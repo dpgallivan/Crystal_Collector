@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Crystal Game!</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<script src = "assets/java/game.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/superhero/bootstrap.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+</head>
+
+<body>
+
+<!-- Instructions for game -->
+<!-- <======================================================> -->
+		<h1><b>CrystalsCollector!</b></h1>
+	
+		<div class ="instructions">
+		  <font color = "black">
+			<p>You will be given a random number at the start of the game.</p>
+			<br>
+			<p>There are four crystals below. By clicking on a cyrstal you will add a specific amount of points to your total score.</p>
+			<br>
+			<p>You win the fame by matching your total score to random number, you lose the game if your total score goes above the random number.</p>
+			<br>
+			<p> the value of each crystal is hidden from you until you click on it.</p>
+			<br>
+			<p>Each time when the game starts, the game will change the values of each crystal.</p>
+			<br>
+		  </font>
+		</div>
+
+<!-- This is for the random number and wins/loss section -->
+<!-- <======================================================= -->
+	<div class = "row">
+		<div class = "col-lg-4">
+			<div class = "boxRandom">Box goes here(left)</div>
+		</div>
+	</div>
+
+	<div class = "row">
+		<div class = "col-lg-4">
+			<div class = "Losses">Losses</div>
+			<div class = "Wins">Wins</div>
+		</div>
+	</div>
+
+<!-- These are the jewels to click on -->
+<!-- <======================================================== -->
+	<div class = "row">
+		<div class = "col-lg-12">
+			
+		  <div id ="blueJewel"><button><img src="assets/images/bluejewel.jpg" style="max-height: 100px; max-width: 100px;"/>
+				</div></button>
+		  <div id ="greenJewel"><button><img src="assets/images/greenjewel.jpg" style="max-height: 100px; max-width: 100px;"/>
+				</div></button>
+		  <div id ="redJewel"><button><img src="assets/images/redjewel.jpg" style="max-height: 100px; max-width: 100px;"/>
+				</div></button>
+		  <div id ="yellowJewel"><button><img src="assets/images/yellowjewel.jpg" style="max-height: 100px; max-width: 100px;"/>
+				</div></button>
+		
+		</div>
+	</div>
+
+<!-- For the total score  -->
+<!-- <======================================================== -->
+	
+	<div class = textBtmScore>
+	<p>Your total score is:</p>
+	</div>
+	<div class = "totalScore">
+		<font color = "black"> 
+		<p>box goes here</p>
+		</font>
+	</div>
+
+
+</body>
+</html>

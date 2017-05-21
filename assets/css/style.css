@@ -1,0 +1,96 @@
+h1 {
+	background-color: green; 
+	padding-left: 0px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	padding-right: 20px;
+	width: 400px;
+	height:100px;
+	text-align: center;
+}
+
+.instructions {
+	background-color: tan;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	padding-left: 40px;
+	width: 500px;
+	height: 350px;
+}
+
+.boxRandom {
+	background-color: teal;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	padding-right: 40px;
+	text-align: center;
+	width: 200px;
+	height: 200px;
+}
+
+.Losses {
+	float: right;
+	clear: both;
+	background-color: red;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	padding-left: 80px;
+	margin-left: 70px;
+	margin-bottom: 50px; 
+	width: 200px;
+	height:200px;
+}
+.Wins {
+	background-color: red;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	padding-left: 80px;
+	margin-left: 210px;
+	margin-bottom: 50px; 
+	width: 190px;
+	height:200px;
+}
+
+#blueJewel {
+	padding-left: 50px;
+	float: left;
+	width: 30px;
+	height: 30px;
+}
+#greenJewel {
+	padding-left: 200px;
+	float: left;
+	width: 30px;
+	height: 30px;
+}
+#redJewel {
+	padding-left: 200px;
+	float: left;
+	width: 30px;
+	height: 30px;
+}
+#yellowJewel {
+	padding-left: 200px;
+	float: left;
+	width: 10px;
+	height: 10px;
+}
+
+.textBtmScore {
+	padding-left: 20px;
+	padding-top: 50px;
+	margin-top: 50px;
+	height: 50px;
+	width: 100px;
+	clear: both;
+}
+
+.totalScore {
+	background-color: yellow;
+	clear: both;
+	padding-left: 20px;
+	padding-top: 50px;
+	margin-top: 50px;
+	height: 200px;
+	width: 200px;
+}
