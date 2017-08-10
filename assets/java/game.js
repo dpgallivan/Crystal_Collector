@@ -1,88 +1,114 @@
 
-// Arrange variables needed
-// <==========================================
-var wins = 0;
-var losses = 0;
-var userTotal = 0;
+$(document).ready(function() {
 
-var random = Math.floor(Math.random() * 120);
+  var yourMatchingNumber = 0;
 
-var blueNum = Math.floor(Math.random() * 12);
-var greenNum = Math.floor(Math.random() * 12);
-var redNum = Math.floor(Math.random() * 12);
-var yellowNum = Math.floor(Math.random() * 12);
+  var randomNum = randomNumGen();
 
+  var wins = 0;
+  var losses = 0;
+  var crystals;
 
-// Starts the game
-// <======================================================
-function startGame() {
-		
-		random = Math.floor(Math.random() * 120);
-			console.log(random)
+  function randomNumCrystals() {
+    return {
+      red: {
+        points: Math.floor(Math.random() * 12) + 1,
+        imageUrl: "assets/images/red.png"
+      },
+      blue: {
+        points: Math.floor(Math.random() * 12) + 1,
+        imageUrl: "assets/images/blue.png"
+      },
+      yellow: {
+        points: Math.floor(Math.random() * 12) + 1,
+        imageUrl: "assets/images/yellow.png"
+      },
+      green: {
+        points: Math.floor(Math.random() * 12) + 1,
+        imageUrl: "assets/images/green.png"
+      }
+    };
+  }
 
-		$("#boxRandom").text(random);
+  function randomNumGen() {
+    return Math.floor(Math.random() * 102) + 19;
+  }
 
-		blueNum = Math.floor(Math.random() * 12);
-		greenNum = Math.floor(Math.random() * 12);
-		redNum = Math.floor(Math.random() * 12);
-		yellowNum = Math.floor(Math.random() * 12);
+  function setGame() {
+    yourMatchingNumber = 0;
+    crystals = randomNumCrystals();
+    randomNum = randomNumGen();
+    $("#random-area").text(randomNum);
+  }
 
-		usertotal = 0;
+  function updateDom(didUserWin) {
+    $("#win-area").empty();
 
-		$("#totalScore").text(userTotal);
-	
+    if (didUserWin === true) {
+      $("#win-area").append($("<p>").text("You won!!"));
+      setGame();
+      renderMatchingNumber();
+    }
+    else if (didUserWin === false) {
+      $("#win-area").append($("<p>").text("You lost!!"));
+      setGame();
+      renderMatchingNumber();
+    }
 
-// Set how to win and lose game 
-// <=====================================================
+    var wSpan = $("<span>").text(wins);
+    var lSpan = $("<span>").text(losses);
 
-	if(userTotal === random) {
-			wins++;
-			$("#Wins").html("Wins:" + wins);
-			reset();
-		};
-	if(userTotal > random) {
-			losses++
-			$("#Losses").html("Losses:" + losses);
-			reset();
-		};
-	
+    var pWins = $("<p>").text("Wins: ");
+    var pLosses = $("<p>").text("Losses: ");
 
-// Set the clicks for the jewel imgs
-// <=======================================================
-	$("#blueJewel").on("click", function() {
-		userTotal= userTotal + blueNum;
-		$("#totalScore").text(userTotal);
-	})
-		console.log("New userTotal" + blueNum);
+    pWins.append(wSpan);
+    pLosses.append(lSpan);
 
+    $("#win-area").append(pWins);
+    $("#win-area").append(pLosses);
+  }
 
-	$("#greenJewel").on("click", function() {
-		userTotal= userTotal + greenJewel;
-		$("#totalScore").text(userTotal);
-	})
-		console.log("New userTotal" + greenNum);
+  function renderCrystals() {
+    for (var key in crystals) {
+      var crystalDiv = $("<div class='crystals-button' data-name='" + key + "'>");
+      var crystalImg = $("<img alt='image' class='crystal-img'>").attr("src", crystals[key].imageUrl);
+      crystalDiv.append(crystalImg);
+      $("#crystal-area").append(crystalDiv);
+    }
+  }
 
+  function updateMatchingNumber(crystal) {
+    yourMatchingNumber += crystals[crystal.attr("data-name")].points;
+  }
 
-	$("#redJewel").on("click", function() {
-		userTotal= userTotal + redJewel;
-		$("#totalScore").text(userTotal);
-	})
-		console.log("New userTotal" + redNum);
+  function renderMatchingNumber() {
+    var scoreNumDiv = $("<div id='score-number'>").text(yourMatchingNumber);
+    $("#score-area").html();
+    $("#score-area").html(scoreNumDiv);
+  }
 
+  setGame();
+  updateDom();
+  renderCrystals();
+  renderMatchingNumber();
 
-	$("#yellowJewel").on("click", function() {
-		userTotal= userTotal + yellowJewel;
-		$("#totalScore").text(userTotal);
-	})
-		console.log("New userTotal" + yellowNum);
+  $(".crystals-button").on("click", function(event) {
+    updateMatchingNumber($(this));
+    renderMatchingNumber();
 
+    if (yourMatchingNumber === randomNum) {
+      wins++;
+      setGame();
+      updateDom(true);
+    }
+    else if (yourMatchingNumber > randomNum) {
+      losses++;
+      setGame();
+      updateDom(false);
+    }
+  });
 
-}
-startGame();
-
-
-
-
+});
 
 
 
